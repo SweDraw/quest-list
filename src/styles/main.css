@@ -1,0 +1,31 @@
+:root {
+  --page__background-color: black;
+  --page__color: white;
+}
+
+#root {
+  background-color: var(--page__background-color);
+  color: var(--page__color);
+  padding: 0.5em;
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+  color: inherit;
+}
+
+.button {
+  font-size: 1.3em;
+  margin: 0.5em;
+  padding: 0.5em 1em;
+}
+.button--submite {
+  background-color: green;
+}
+.button--cancle {
+  background-color: red;
+}
+.button--reset {
+  background-color: blue;
+}

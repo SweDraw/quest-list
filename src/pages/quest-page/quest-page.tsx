@@ -1,3 +1,5 @@
+import './quest-page.scss';
+
 import React, { useEffect, useState } from 'react';
 
 import QuestForm from '../../components/quest-form/quest-form.componet';
@@ -24,18 +26,19 @@ const QuestPage: React.FC<Props> = () => {
     fetch("/quests-list")
       .then(res => res.json())
       .then(res => {
-        console.log(res);
         const qusets: Quest[] = res as Quest[];
         setQuestList(
-          qusets.map((quest, index) =>
-            createQusetPropsFromQuest(quest, `quest-${index}`)
-          )
+          qusets.map((quest, index) => {
+            quest.quest = `${index + 1}. ${quest.quest}`;
+            return createQusetPropsFromQuest(quest, `quest-${index}`);
+          })
         );
       });
   }, []);
 
   return (
     <section className="quest-page">
+      <h1 className="quest-page__title">Тест по історії</h1>
       <QuestForm questParameter={questList} />
     </section>
   );

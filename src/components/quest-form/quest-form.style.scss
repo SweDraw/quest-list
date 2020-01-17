@@ -1,2 +1,6 @@
 .quest-form {
+  &__button-panel {
+    display: flex;
+    justify-content: space-between;
+  }
 }

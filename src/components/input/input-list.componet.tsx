@@ -1,3 +1,5 @@
+import './input.style.scss';
+
 import React from 'react';
 
 import { InputType } from '../../interface/quest.interface';

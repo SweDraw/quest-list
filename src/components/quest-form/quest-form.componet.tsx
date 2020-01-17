@@ -28,16 +28,25 @@ const QuestForm: React.FC<QuestFormProps> = ({ questParameter }) => {
         onSubmit={formMethods.handleSubmit(handleSubmite)}
       >
         {QuestList}
-        <button type="reset" onClick={() => formMethods.reset()}>
-          Reset
-        </button>
-        <button type="submit">Submit</button>
+        <div className="quest-form__button-panel">
+          <button
+            className="button button--reset"
+            type="reset"
+            onClick={() => formMethods.reset()}
+          >
+            Reset
+          </button>
+          <button className="button button--submite" type="submit">
+            Submit
+          </button>
+        </div>
       </form>
       {isModalOpen && (
         <Modal
           modalText="Каждый не отвеченный ответ считается неправильным, Вы уверены что
           хотите продолжить?"
-          handleClick={() => setModalOpen(false)}
+          cancleClick={() => setModalOpen(false)}
+          agreeClick={() => setModalOpen(false)}
         />
       )}
     </FormContext>

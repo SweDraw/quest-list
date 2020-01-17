@@ -1,25 +1,34 @@
+import './modal.style.scss';
+
 import React from 'react';
 
 interface Props {
-  handleClick: () => void;
+  agreeClick: () => void;
+  cancleClick: () => void;
   modalText: string;
 }
 
-const Modal: React.FC<Props> = ({ handleClick, modalText }) => {
+const Modal: React.FC<Props> = ({ agreeClick, modalText, cancleClick }) => {
   return (
-    <div className="modal">
-      <form className="modal__form" onSubmit={() => handleClick()}>
-        <p className="modal__text">
-          {modalText}
-        </p>
+    <section className="modal">
+      <div className="modal__container">
+        <p className="modal__text">{modalText}</p>
         <div className="modal__button-panel">
-          <button className="modal__agree" type="submit">
+          <button
+            className="modal__agree button button--submite"
+            onClick={() => agreeClick()}
+          >
             Да
           </button>
-          <button className="modal__cancle">Нет</button>
+          <button
+            className="modal__cancle button button--cancle"
+            onClick={() => cancleClick()}
+          >
+            Нет
+          </button>
         </div>
-      </form>
-    </div>
+      </div>
+    </section>
   );
 };
 
