@@ -1,9 +1,9 @@
 import './answer.styles.scss';
 
-import React, { FC } from 'react';
+import React from 'react';
 
 import { AnswerType } from '../../interface/quest.interface';
-import InputList from '../input/input-list.componet';
+import CheckedInputList from '../checked-input/checked-input-list.componet';
 import Select from '../select/select.component';
 import TextArea from '../textarea/textarea.component';
 
@@ -29,7 +29,7 @@ const AnswerInput: React.FC<AnswerProps> = ({
     case "radio":
     case "checkbox":
       return (
-        <InputList
+        <CheckedInputList
           inputListType={type}
           inputText={answerList}
           listName={answerFormName}

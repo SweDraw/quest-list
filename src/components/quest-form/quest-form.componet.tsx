@@ -3,6 +3,7 @@ import './quest-form.style.scss';
 import React, { useState } from 'react';
 import { FormContext, useForm } from 'react-hook-form';
 
+import { handleReset } from '../../utils/form';
 import { isEmptyForm } from '../../utils/form-check';
 import Modal from '../madal/modal.component';
 import Quest, { QuestProps } from '../quest/Quest.componet';
@@ -32,7 +33,7 @@ const QuestForm: React.FC<QuestFormProps> = ({ questParameter }) => {
           <button
             className="button button--reset"
             type="reset"
-            onClick={() => formMethods.reset()}
+            onClick={() => formMethods.reset(handleReset(questParameter))}
           >
             Reset
           </button>

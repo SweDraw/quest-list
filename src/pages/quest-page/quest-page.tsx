@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import QuestForm from '../../components/quest-form/quest-form.componet';
 import { QuestProps } from '../../components/quest/Quest.componet';
 import { Quest } from '../../interface/quest.interface';
+import { createQuestFieldName } from '../../utils/quest';
 
 interface Props {}
 
@@ -30,7 +31,10 @@ const QuestPage: React.FC<Props> = () => {
         setQuestList(
           qusets.map((quest, index) => {
             quest.quest = `${index + 1}. ${quest.quest}`;
-            return createQusetPropsFromQuest(quest, `quest-${index}`);
+            return createQusetPropsFromQuest(
+              quest,
+              createQuestFieldName(index + 1)
+            );
           })
         );
       });

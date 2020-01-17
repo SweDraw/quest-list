@@ -1,5 +1,5 @@
-export type AnswerType = InputType | "select" | "textarea";
-export type InputType = "radio" | "checkbox";
+export type AnswerType = CheckedInputType | "select" | "textarea";
+export type CheckedInputType = "radio" | "checkbox";
 
 export interface AnswerParameter {
   type: AnswerType;
