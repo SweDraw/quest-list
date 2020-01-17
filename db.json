@@ -2,8 +2,42 @@
   "quests-list": [
     {
       "quest": "В якому році розпочалася Перша Світова війна?",
-      "answers": ["1911", "1914", "1917"],
-      "right-answer-numbers": 1
+      "answer": {
+        "type": "select",
+        "answerList": ["1911", "1914", "1917"],
+        "right_answer": 1
+      }
+    },
+    {
+      "quest": "В якому році розпочалася Перша Світова війна?",
+      "answer": {
+        "type": "select",
+        "answerList": ["1911", "1914", "1917"],
+        "right_answer": 1
+      }
+    },
+    {
+      "quest": "В якому році розпочалася Перша Світова війна?",
+      "answer": {
+        "type": "textarea",
+        "right_answer": 1
+      }
+    },
+    {
+      "quest": "В якому році розпочалася Перша Світова війна?",
+      "answer": {
+        "type": "radio",
+        "answerList": ["1911", "1914", "1917"],
+        "right_answer": 1
+      }
+    },
+    {
+      "quest": "В якому році розпочалася Перша Світова війна?",
+      "answer": {
+        "type": "checkbox",
+        "answerList": ["1911", "1914", "1917"],
+        "right_answer": 1
+      }
     }
   ]
 }

@@ -1,4 +1,4 @@
-import './Quset.style.scss';
+import './Quest.style.scss';
 
 import React from 'react';
 

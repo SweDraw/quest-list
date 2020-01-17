@@ -1,0 +1,16 @@
+{
+  "quests-list": [
+    {
+      "quest": "В якому році розпочалася Перша Світова війна?",
+      "answer": {
+        "type": "checkbox",
+        "answerList": [
+          "1911",
+          "1914",
+          "1917"
+        ],
+        "right_answer_numbers": 1
+      }
+    }
+  ]
+}

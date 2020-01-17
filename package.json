@@ -12,7 +12,7 @@
     "@types/react-dom": "^16.9.0",
     "@types/react-router": "^5.1.4",
     "@types/react-router-dom": "^5.1.3",
-    "axois": "^0.0.1-security",
+    "axios": "^0.19.1",
     "node-sass": "^4.13.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -22,15 +22,14 @@
     "react-scripts": "3.3.0",
     "typescript": "~3.7.2"
   },
-  "homepage": "https://github.com/SweDraw/quest-list.git",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start:fake": "json-server db.json -p 4000",
-    "deploy": "gh-pages -d build"
+    "start:json-server": "json-server db.json -p 4000"
   },
+  "proxy": "http://localhost:4000",
   "eslintConfig": {
     "extends": "react-app"
   },

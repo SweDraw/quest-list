@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Input from './';
-import { InputField, InputType } from './input.component';
+import { InputType } from '../../interface/quest.interface';
+import Input from './input.component';
 
 interface Props {
   inputListType: InputType;

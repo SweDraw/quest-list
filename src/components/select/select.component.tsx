@@ -10,14 +10,11 @@ type Props = {
 
 const Select: React.FC<Props> = ({ selectItemList, selectName }) => {
   const { register } = useFormContext();
-  const SelectList = () => {
-    return selectItemList.map((element, index) => (
-      <option className="select__option" key={index}>
-        {element}
-      </option>
-    ));
-  };
-
+  const SelectList = selectItemList.map((element, index) => (
+    <option className="select__option" key={index}>
+      {element}
+    </option>
+  ));
   return (
     <select name={selectName} ref={register} className="select">
       {SelectList}

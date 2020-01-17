@@ -1,10 +1,16 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+import QuestPage from '../pages/quest-page/quest-page';
+import ResultPage from '../pages/result/result.page';
 
 const App: React.FC = () => {
   return (
     <Router>
-      <Switch></Switch>
+      <Switch>
+        <Route exact path="/" component={QuestPage} />
+        <Route path="/answer" component={ResultPage} />
+      </Switch>
     </Router>
   );
 };
