@@ -7,7 +7,8 @@ export const handleReset = (questList: QuestProps[]): Record<string, any> => {
   questList.forEach((quest, index) => {
     const name: string = createQuestFieldName(index + 1);
     // * if answer is checkbox set default value empty array else empty string
-    resetValue[name] = quest.answerParameter.type === "checkbox" ? [] : "";
+    resetValue[name] =
+      quest.answerParameter.answerType === "checkbox" ? [] : "";
     // * remove saved field
     removeSaveValue(name);
   });

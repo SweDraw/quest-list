@@ -4,19 +4,23 @@ import React, { useState } from 'react';
 import { FormContext, useForm } from 'react-hook-form';
 
 import { handleReset } from '../../utils/form';
-import { isEmptyForm } from '../../utils/form-check';
+import { isHaveEmptyFieldForm } from '../../utils/form-check';
 import Modal from '../madal/modal.component';
 import Quest, { QuestProps } from '../quest/Quest.componet';
 
 export interface QuestFormProps {
+  // * List of parameter from quest what add to this form
   questParameter: QuestProps[];
 }
-
+/**
+ * Crate quest form.
+ * Whene not all quest was answered open modal window this agree/disagree button
+ */
 const QuestForm: React.FC<QuestFormProps> = ({ questParameter }) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const formMethods = useForm();
   const handleSubmite = (data: any) => {
-    setModalOpen(isEmptyForm(data));
+    setModalOpen(isHaveEmptyFieldForm(data));
   };
   const QuestList = questParameter.map((quest, index) => (
     <Quest key={index} {...quest} />

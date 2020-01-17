@@ -6,25 +6,24 @@ import { useFormContext } from 'react-hook-form';
 import { getSaveValue, saveValueToStorage } from '../../utils/localStorage';
 
 type Props = {
-  selectItemList: string[];
-  selectName: string;
-  beforeValue?: string;
+  // * Select items text
+  selectItemsText: string[];
+  // * Form name
+  formSelectName: string;
 };
-
-const Select: React.FC<Props> = ({
-  selectItemList,
-  selectName,
-  beforeValue
-}) => {
+/**
+ * Create select component with save value to store
+ */
+const Select: React.FC<Props> = ({ selectItemsText, formSelectName }) => {
   const { register } = useFormContext();
-  const SelectList = selectItemList.map((element, index) => (
-    <option key={index}>{element}</option>
+  const SelectList = selectItemsText.map((text, index) => (
+    <option key={index}>{text}</option>
   ));
   return (
     <select
-      value={getSaveValue(selectName)}
-      onChange={e => saveValueToStorage(selectName, e.target.value)}
-      name={selectName}
+      value={getSaveValue(formSelectName)}
+      onChange={e => saveValueToStorage(formSelectName, e.target.value)}
+      name={formSelectName}
       ref={register}
       className="select"
     >

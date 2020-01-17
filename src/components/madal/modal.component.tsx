@@ -3,11 +3,17 @@ import './modal.style.scss';
 import React from 'react';
 
 interface Props {
+  //* What happen after click to agree
   agreeClick: () => void;
+  //* What happen after click to disagree
   cancleClick: () => void;
+  //* Text in center of modal window
   modalText: string;
 }
 
+/**
+ * Create modal window
+ */
 const Modal: React.FC<Props> = ({ agreeClick, modalText, cancleClick }) => {
   return (
     <section className="modal">

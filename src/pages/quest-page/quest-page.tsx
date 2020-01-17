@@ -15,12 +15,14 @@ const createQusetPropsFromQuest = (
 ): QuestProps => ({
   quest,
   answerParameter: {
-    answerFormName,
-    type: answer.type,
+    formAnswerName: answerFormName,
+    answerType: answer.type,
     answerList: answer.answerList
   }
 });
-
+/**
+ * Create page where you answer in question
+ */
 const QuestPage: React.FC<Props> = () => {
   const [questList, setQuestList] = useState<QuestProps[]>([]);
   useEffect(() => {

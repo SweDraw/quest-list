@@ -8,46 +8,55 @@ import Select from '../select/select.component';
 import TextArea from '../textarea/textarea.component';
 
 export interface AnswerInputProps {
-  type: AnswerType;
+  // * Type of answer
+  answerType: AnswerType;
+  // * List of examples of answer
   answerList?: string[];
-  answerFormName: string;
+  // * Form name
+  formAnswerName: string;
 }
 export type AnswerProps = AnswerInputProps & {};
-
+/**
+ * Create answer input elment from type
+ */
 const AnswerInput: React.FC<AnswerProps> = ({
-  type,
-  answerFormName,
+  answerType: type,
+  formAnswerName,
   answerList = []
 }) => {
   switch (type) {
     default:
-      return <TextArea textareaName={answerFormName} />;
+      return <TextArea formTextAreaName={formAnswerName} />;
     case "select":
-      return <Select selectItemList={answerList} selectName={answerFormName} />;
+      return (
+        <Select selectItemsText={answerList} formSelectName={formAnswerName} />
+      );
     case "textarea":
-      return <TextArea textareaName={answerFormName} />;
+      return <TextArea formTextAreaName={formAnswerName} />;
     case "radio":
     case "checkbox":
       return (
         <CheckedInputList
           inputListType={type}
           inputText={answerList}
-          listName={answerFormName}
+          formListName={formAnswerName}
         />
       );
   }
 };
-
+/**
+ * Create element where containse input element what use to answer in question
+ */
 const Answer: React.FC<AnswerProps> = ({
-  answerFormName,
-  type,
+  formAnswerName,
+  answerType: type,
   answerList = []
 }) => {
   return (
     <div className="answer">
       <AnswerInput
-        answerFormName={answerFormName}
-        type={type}
+        formAnswerName={formAnswerName}
+        answerType={type}
         answerList={answerList}
       />
     </div>

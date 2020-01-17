@@ -5,29 +5,40 @@ import { useFormContext } from 'react-hook-form';
 
 import { CheckedInputType } from '../../interface/quest.interface';
 import { isChecked } from '../../utils/form-check';
-import { getSaveValue, saveCheckedInput, saveValueToStorage } from '../../utils/localStorage';
+import { saveCheckedInput } from '../../utils/localStorage';
 
 interface Props {
-  name: string;
-  type: CheckedInputType;
-  text: string;
+  // *  Name what set in form to submite data
+  formName: string;
+  // * Input element type
+  inputType: CheckedInputType;
+  // * Inner text in elment
+  innerText: string;
+  // * Value what return elemenet form form
   value: string;
 }
-
-const CheckedInput: React.FC<Props> = ({ name, type, text, value }) => {
+/**
+ * Create checkbox or radio button element with save select value to store
+ */
+const CheckedInput: React.FC<Props> = ({
+  formName,
+  inputType,
+  innerText,
+  value
+}) => {
   const { register } = useFormContext();
   return (
     <label className="input">
       <input
         className="input__field"
         ref={register}
-        type={type}
-        name={name}
+        type={inputType}
+        name={formName}
         value={value}
-        defaultChecked={isChecked(type, name, value)}
-        onChange={() => saveCheckedInput(type, name, value)}
+        defaultChecked={isChecked(inputType, formName, value)}
+        onChange={() => saveCheckedInput(inputType, formName, value)}
       />
-      <span className="input__text">{text}</span>
+      <span className="input__text">{innerText}</span>
     </label>
   );
 };

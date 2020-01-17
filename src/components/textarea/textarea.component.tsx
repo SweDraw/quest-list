@@ -6,21 +6,24 @@ import { useFormContext } from 'react-hook-form';
 import { getSaveValue, saveValueToStorage } from '../../utils/localStorage';
 
 type Props = {
-  textareaName: string;
+  //* Form name
+  formTextAreaName: string;
 };
-
-const TextArea: React.FC<Props> = ({ textareaName }) => {
+/**
+ * Create TextArea component
+ */
+const TextArea: React.FC<Props> = ({ formTextAreaName }) => {
   const { register } = useFormContext();
   return (
     <textarea
-      value={getSaveValue(textareaName)}
+      value={getSaveValue(formTextAreaName)}
       onChange={e => {
         // todo textare value after reload not changes
-        saveValueToStorage(textareaName, e.target.value);
+        saveValueToStorage(formTextAreaName, e.target.value);
       }}
       className="textarea"
       ref={register}
-      name={textareaName}
+      name={formTextAreaName}
     />
   );
 };
