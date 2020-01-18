@@ -25,8 +25,9 @@ const QuestForm: React.FC<QuestFormProps> = ({ questParameter }) => {
   const goToResultPage = () => history.push("/result");
 
   const handleSubmite = (data: any) => {
-    setModalOpen(isHaveEmptyFieldForm(data));
-    if (!isModalOpen) {
+    const isHaveEmptyField: boolean = isHaveEmptyFieldForm(data);
+    setModalOpen(isHaveEmptyField);
+    if (!isHaveEmptyField) {
       goToResultPage();
     }
   };

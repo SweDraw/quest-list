@@ -1,5 +1,9 @@
 .quest {
+  padding: 1em 1em;
+  border: 2px solid white;
+  border-radius: 0.5em;
+  margin: 1.5em 0 1.5em;
   &__quest {
-    margin: 0.5em 0;
+    margin: 1em 0;
   }
 }

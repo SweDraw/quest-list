@@ -15,3 +15,10 @@ export const isEqualStringArray = (
 
 export const getEmptyStringIfElementUndefine = (element: any) =>
   element !== undefined ? element : "";
+
+/**
+ * Check is array is empty
+ * @param field - array what checked
+ */
+export const isEmptyArray = <T>(field: T | T[]): boolean =>
+  Array.isArray(field) && !field.length;

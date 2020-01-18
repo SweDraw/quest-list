@@ -1,0 +1,48 @@
+.answer-check {
+  border: 2px solid white;
+  margin: 0.5em;
+  padding: 0.5em;
+
+  &--correct {
+    background-color: lightgreen;
+  }
+  &--incorrect {
+    background-color: lightcoral;
+  }
+
+  &__answer-bar {
+    background-color: var(--page__background-color);
+    padding: 0.5em;
+    > * {
+      margin: 0;
+    }
+    > * + * {
+      margin-top: 0.5em;
+    }
+  }
+
+  &__quest,
+  &__title,
+  &__result {
+    color: var(--page__background-color);
+    font-size: 1.3em;
+  }
+
+  &__title {
+    font-weight: bold;
+  }
+
+  &__title {
+    text-align: center;
+  }
+
+  &__user-answer,
+  &__right-answer,
+  &__result {
+    font-size: 1.1em;
+  }
+
+  &__info {
+    font-weight: bolder;
+  }
+}

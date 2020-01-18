@@ -42,6 +42,7 @@ If first parmeter is number and senocd is string array return:
 `, () => {
   expect(getRightAnswerList(0, ["yes", "no"])).toBe("yes");
 });
+/*
 test(`
 Test getRightAnswerList. 
 If first parmeter is number array and senocd is string array return: 
@@ -53,3 +54,4 @@ If first parmeter is number array and senocd is string array return:
   expect(getRightAnswerList([2], ["yes", "no"])).toBe([""]);
   expect(getRightAnswerList([0, 2], ["yes", "no"])).toBe(["yes", ""]);
 });
+*/

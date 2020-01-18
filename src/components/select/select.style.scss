@@ -1,4 +1,8 @@
 .select {
-  background-color: var(--page__backgroun-color);
-  padding: 0.25em;
+  min-width: 10em;
+  &__opation,
+  & {
+    background: var(--page__background-color);
+    padding: 0.25em;
+  }
 }

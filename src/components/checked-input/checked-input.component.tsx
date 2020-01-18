@@ -5,7 +5,7 @@ import { useFormContext } from 'react-hook-form';
 
 import { CheckedInputType } from '../../interface/quest.interface';
 import { isChecked } from '../../utils/form-check';
-import { saveCheckedInput } from '../../utils/localStorage';
+import { getSaveValue, saveCheckedInput } from '../../utils/localStorage';
 
 interface Props {
   // *  Name what set in form to submite data
@@ -27,6 +27,11 @@ const CheckedInput: React.FC<Props> = ({
   value
 }) => {
   const { register } = useFormContext();
+  const beforeValue: string | undefined = getSaveValue(formName);
+  const isDefaultChecked = isChecked(inputType, beforeValue, value);
+  const handleChange = () => {
+    saveCheckedInput(inputType, formName, value);
+  };
   return (
     <label className="input">
       <input
@@ -35,8 +40,8 @@ const CheckedInput: React.FC<Props> = ({
         type={inputType}
         name={formName}
         value={value}
-        defaultChecked={isChecked(inputType, formName, value)}
-        onChange={() => saveCheckedInput(inputType, formName, value)}
+        defaultChecked={isDefaultChecked}
+        onChange={handleChange}
       />
       <span className="input__text">{innerText}</span>
     </label>

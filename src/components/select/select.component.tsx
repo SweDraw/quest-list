@@ -17,11 +17,11 @@ type Props = {
 const Select: React.FC<Props> = ({ selectItemsText, formSelectName }) => {
   const { register } = useFormContext();
   const SelectList = selectItemsText.map((text, index) => {
-    if (index) {
+    if (!index && getSaveValue(formSelectName)) {
       saveValueToStorage(formSelectName, text);
     }
     return (
-      <option value={text} key={index}>
+      <option className="select__opation" value={text} key={index}>
         {text}
       </option>
     );

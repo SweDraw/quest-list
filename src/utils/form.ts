@@ -1,24 +1,31 @@
 import { QuestProps } from '../components/quest/Quest.componet';
-import { removeSaveValue } from './localStorage';
+import { AnswerType } from '../interface/quest.interface';
+import { removeSaveValue, saveValueToStorage } from './localStorage';
 import { createQuestFieldName } from './quest';
+
+type HTMLInput = NodeListOf<HTMLInputElement>;
 
 export const handleReset = (questList: QuestProps[]): Record<string, any> => {
   const resetValue: Record<string, any> = {};
-  questList.forEach((quest, index) => {
+  questList.forEach(({ answerParameter }, index) => {
     const name: string = createQuestFieldName(index + 1);
-    // * if answer is checkbox set default value empty array else empty string
-    resetValue[name] =
-      quest.answerParameter.answerType === "checkbox" ? [] : "";
-    // * remove saved field
-    removeSaveValue(name);
+    const type: AnswerType = answerParameter.answerType;
+
+    resetValue[name] = "";
+    if (type === "select") {
+      const value: string = answerParameter.answerList
+        ? answerParameter.answerList[0]
+        : "";
+      saveValueToStorage(name, value);
+    } else removeSaveValue(name);
   });
   return resetValue;
 };
 
 export const getCheckboxListValue = (checkboxFormName: string) => {
-  const checkboxes: NodeListOf<HTMLInputElement> = document.getElementsByName(
+  const checkboxes: HTMLInput = document.getElementsByName(
     checkboxFormName
-  ) as NodeListOf<HTMLInputElement>;
+  ) as HTMLInput;
   const checkedList: string[] = [];
   checkboxes.forEach(({ checked, value }) => {
     if (checked) checkedList.push(value);

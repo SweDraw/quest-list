@@ -18,7 +18,6 @@ const TextArea: React.FC<Props> = ({ formTextAreaName }) => {
     <textarea
       defaultValue={getSaveValue(formTextAreaName)}
       onChange={e => {
-        // todo textare value after reload not changes
         saveValueToStorage(formTextAreaName, e.target.value);
       }}
       className="textarea"
