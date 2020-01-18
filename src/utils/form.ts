@@ -23,8 +23,9 @@ export const handleReset = (questList: QuestProps[]): Record<string, any> => {
 };
 
 export const getCheckboxListValue = (checkboxFormName: string) => {
-  const checkboxes: HTMLInput = document.getElementsByName(
-    checkboxFormName
+  // * Get list of all
+  const checkboxes: HTMLInput = document.querySelectorAll(
+    `[type ="checkbox"][name="${checkboxFormName}"]`
   ) as HTMLInput;
   const checkedList: string[] = [];
   checkboxes.forEach(({ checked, value }) => {

@@ -15,12 +15,12 @@ export const getSaveValue = (fieldName: string): string | undefined =>
 export const saveValueToStorage = (
   fieldName: string,
   newValue: string | string[]
-) => localStorage.setItem(fieldName, newValue.toString());
+): void => localStorage.setItem(fieldName, newValue.toString());
 /**
  * Remove field from storage by name
  * @param fieldName - name of remove field
  */
-export const removeSaveValue = (fieldName: string) =>
+export const removeSaveValue = (fieldName: string): void =>
   localStorage.removeItem(fieldName);
 /**
  * Save data to storage if element is checkbox or radiobutton
