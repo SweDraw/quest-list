@@ -1,5 +1,6 @@
 import { RightAnswer } from '../interface/quest.interface';
-import { getEmptyStringIfElementUndefine, isEqualStringArray } from './array';
+import { isEqualStringArray } from './array';
+import { getEmptyStringIfElementUndefine } from './universal';
 
 /**
  * Check user answer and right answer is equal

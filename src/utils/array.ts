@@ -13,9 +13,6 @@ export const isEqualStringArray = (
   return firstArray.every(answer => secondArray.includes(answer));
 };
 
-export const getEmptyStringIfElementUndefine = (element: any) =>
-  element !== undefined ? element : "";
-
 /**
  * Check is array is empty
  * @param field - array what checked

@@ -47,4 +47,12 @@ test(`
   expect(isChecked("radio", "test", "test")).toBe(true);
   expect(isChecked("radio", "test, test", "test")).toBe(false);
   expect(isChecked("radio", "test", "test, test")).toBe(false);
+
+  expect(isChecked("checkbox", "", undefined)).toBe(false);
+  expect(isChecked("checkbox", undefined, "")).toBe(false);
+  expect(isChecked("checkbox", "", "")).toBe(true);
+  expect(isChecked("checkbox", "test", "")).toBe(false);
+  expect(isChecked("checkbox", "test", "test")).toBe(true);
+  expect(isChecked("checkbox", "test, test", "test")).toBe(true);
+  expect(isChecked("checkbox", "test", "test, test")).toBe(false);
 });

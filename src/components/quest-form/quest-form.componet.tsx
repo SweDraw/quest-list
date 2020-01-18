@@ -52,10 +52,10 @@ const QuestForm: React.FC<QuestFormProps> = ({ questParameter }) => {
             type="reset"
             onClick={() => formMethods.reset(handleReset(questParameter))}
           >
-            Reset
+            Очистити
           </button>
           <button className="button button--submite" type="submit">
-            Submit
+            Відправити
           </button>
         </div>
       </form>
