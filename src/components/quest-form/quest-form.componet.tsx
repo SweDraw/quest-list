@@ -2,6 +2,7 @@ import './quest-form.style.scss';
 
 import React, { useState } from 'react';
 import { FormContext, useForm } from 'react-hook-form';
+import { useHistory } from 'react-router';
 
 import { handleReset } from '../../utils/form';
 import { isHaveEmptyFieldForm } from '../../utils/form-check';
@@ -19,9 +20,20 @@ export interface QuestFormProps {
 const QuestForm: React.FC<QuestFormProps> = ({ questParameter }) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const formMethods = useForm();
+  const history = useHistory();
+
+  const goToResultPage = () => history.push("/result");
+
   const handleSubmite = (data: any) => {
     setModalOpen(isHaveEmptyFieldForm(data));
+    if (!isModalOpen) {
+      goToResultPage();
+    }
   };
+  const agreeClick = () => {
+    goToResultPage();
+  };
+
   const QuestList = questParameter.map((quest, index) => (
     <Quest key={index} {...quest} />
   ));
@@ -51,7 +63,10 @@ const QuestForm: React.FC<QuestFormProps> = ({ questParameter }) => {
           modalText="Каждый не отвеченный ответ считается неправильным, Вы уверены что
           хотите продолжить?"
           cancleClick={() => setModalOpen(false)}
-          agreeClick={() => setModalOpen(false)}
+          agreeClick={() => {
+            agreeClick();
+            setModalOpen(false);
+          }}
         />
       )}
     </FormContext>

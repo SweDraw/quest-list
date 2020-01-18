@@ -5,7 +5,7 @@
       "answer": {
         "type": "select",
         "answerList": ["1911", "1914", "1917"],
-        "right_answer": 1
+        "right_answers": 0
       }
     },
     {
@@ -13,14 +13,14 @@
       "answer": {
         "type": "select",
         "answerList": ["1911", "1914", "1917"],
-        "right_answer": 1
+        "right_answers": 0
       }
     },
     {
       "quest": "В якому році розпочалася Перша Світова війна?",
       "answer": {
         "type": "textarea",
-        "right_answer": 1
+        "right_answers": "1911"
       }
     },
     {
@@ -28,7 +28,7 @@
       "answer": {
         "type": "radio",
         "answerList": ["1911", "1914", "1917"],
-        "right_answer": 1
+        "right_answers": 0
       }
     },
     {
@@ -36,7 +36,7 @@
       "answer": {
         "type": "checkbox",
         "answerList": ["1911", "1914", "1917"],
-        "right_answer": 1
+        "right_answers": 0
       }
     }
   ]

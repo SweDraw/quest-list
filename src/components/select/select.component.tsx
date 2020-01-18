@@ -16,13 +16,22 @@ type Props = {
  */
 const Select: React.FC<Props> = ({ selectItemsText, formSelectName }) => {
   const { register } = useFormContext();
-  const SelectList = selectItemsText.map((text, index) => (
-    <option key={index}>{text}</option>
-  ));
+  const SelectList = selectItemsText.map((text, index) => {
+    if (index) {
+      saveValueToStorage(formSelectName, text);
+    }
+    return (
+      <option value={text} key={index}>
+        {text}
+      </option>
+    );
+  });
   return (
     <select
-      value={getSaveValue(formSelectName)}
-      onChange={e => saveValueToStorage(formSelectName, e.target.value)}
+      defaultValue={getSaveValue(formSelectName)}
+      onChange={({ target }) =>
+        saveValueToStorage(formSelectName, target.value)
+      }
       name={formSelectName}
       ref={register}
       className="select"

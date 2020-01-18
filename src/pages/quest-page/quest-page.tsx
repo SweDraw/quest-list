@@ -6,6 +6,7 @@ import QuestForm from '../../components/quest-form/quest-form.componet';
 import { QuestProps } from '../../components/quest/Quest.componet';
 import { Quest } from '../../interface/quest.interface';
 import { createQuestFieldName } from '../../utils/quest';
+import { getQuestDataFromServer } from '../../utils/server';
 
 interface Props {}
 
@@ -20,18 +21,17 @@ const createQusetPropsFromQuest = (
     answerList: answer.answerList
   }
 });
+
 /**
  * Create page where you answer in question
  */
 const QuestPage: React.FC<Props> = () => {
   const [questList, setQuestList] = useState<QuestProps[]>([]);
   useEffect(() => {
-    fetch("/quests-list")
-      .then(res => res.json())
-      .then(res => {
-        const qusets: Quest[] = res as Quest[];
+    const fethData = async () =>
+      await getQuestDataFromServer(quests => {
         setQuestList(
-          qusets.map((quest, index) => {
+          quests.map((quest, index) => {
             quest.quest = `${index + 1}. ${quest.quest}`;
             return createQusetPropsFromQuest(
               quest,
@@ -40,6 +40,7 @@ const QuestPage: React.FC<Props> = () => {
           })
         );
       });
+    fethData();
   }, []);
 
   return (
